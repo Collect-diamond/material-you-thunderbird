@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "material-pin@thunderbird.local",
+      "strict_min_version": "156.0"
+    }
+  },
+  "name": "Material Pin for Thunderbird",
+  "description": "Pin messages above the rest of the list while keeping each group in newest-first order.",
+  "version": "0.1.1",
+  "icons": {
+    "32": "pin.svg"
+  },
+  "message_display_action": {
+    "default_title": "固定到顶部",
+    "default_label": "固定",
+    "default_icon": "pin.svg"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module"
+  },
+  "permissions": [
+    "accountsRead",
+    "menus",
+    "messagesRead",
+    "messagesUpdate",
+    "messagesTags",
+    "messagesTagsList"
+  ],
+  "experiment_apis": {
+    "MaterialPin": {
+      "schema": "api/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["MaterialPin"]],
+        "script": "api/implementation.js"
+      }
+    }
+  }
+}

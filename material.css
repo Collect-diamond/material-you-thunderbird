@@ -1,0 +1,91 @@
+/* Material 3 shape and surface accents for Thunderbird 128+.
+ * The manifest owns the colors; these additions only refine Thunderbird UI.
+ * Keep contrast modes native so OS accessibility settings remain effective. */
+
+@media not (prefers-contrast) {
+  :root {
+    --button-border-radius: 12px;
+    --listbox-border-radius: 14px;
+    --input-text-border-radius: 16px;
+    --input-search-border-radius: 24px;
+    --panel-border-radius: 16px;
+    --button-primary-background-color: var(--md3-primary);
+    --button-primary-text-color: var(--md3-on-primary);
+    --button-primary-border-color: var(--md3-primary);
+    --button-link-text-color: var(--md3-primary);
+    --focus-outline-color: var(--md3-primary);
+    --search-bar-background: var(--md3-surface-container);
+    --search-bar-focus-background: var(--md3-surface);
+    --search-bar-border-color: var(--md3-outline-variant);
+    --layout-background-0: var(--md3-surface);
+    --layout-background-1: var(--md3-surface-low);
+    --layout-background-2: var(--md3-surface-container);
+    --layout-background-3: var(--md3-surface-high);
+    --layout-color-1: var(--md3-on-surface);
+    --layout-color-2: var(--md3-on-surface-variant);
+    --layout-border-0: var(--md3-outline-variant);
+    --layout-border-1: var(--md3-outline-variant);
+    --selected-item-color: var(--md3-primary-container);
+    --selected-item-text-color: var(--md3-on-primary-container);
+    --tree-card-background-selected: var(--md3-primary-container);
+    --tree-card-background-selected-current: var(--md3-primary-container);
+    --tree-card-background-selected-unfocused: var(--md3-surface-high);
+    --tree-card-border-selected: var(--md3-primary);
+  }
+
+  #folderTree .container {
+    border-radius: 12px;
+    margin-inline: 6px;
+  }
+
+  #folderTree li.selected > .container {
+    background-color: var(--md3-primary-container);
+    color: var(--md3-on-primary-container);
+  }
+
+  #folderTree li:not(.selected) > .container:hover {
+    background-color: var(--md3-surface-high);
+  }
+
+  #folderPaneHeaderBar {
+    padding-block: 6px;
+  }
+
+  #folderPaneWriteMessage {
+    border-radius: 16px;
+  }
+
+  #threadPaneHeaderBar,
+  #threadPaneHeader {
+    background-color: var(--md3-surface-low);
+  }
+
+  #threadTree[rows="thread-card"] .card-layout > td > .card-container {
+    border-radius: 14px;
+  }
+
+  #threadTree[rows="thread-card"] .card-layout.selected {
+    --tree-card-background: var(--md3-primary-container);
+    --tree-card-border: var(--md3-primary);
+  }
+
+  #unifiedToolbar .search-bar {
+    border-radius: 24px;
+  }
+
+  :is(menupopup, panel):not(.autoscroller) {
+    --panel-border-radius: 16px;
+  }
+}
+
+/* Keep the folder name and controls, and reclaim the count's width. */
+#threadPaneFolderCountContainer {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: no-preference) and (prefers-contrast: no-preference) {
+  #folderTree .container,
+  #threadTree[rows="thread-card"] .card-layout {
+    transition: background-color 160ms ease, border-color 160ms ease;
+  }
+}

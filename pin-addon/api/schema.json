@@ -1,0 +1,25 @@
+[
+  {
+    "namespace": "MaterialPin",
+    "functions": [
+      {
+        "name": "start",
+        "type": "function",
+        "async": true,
+        "parameters": []
+      },
+      {
+        "name": "sortAll",
+        "type": "function",
+        "async": true,
+        "parameters": []
+      },
+      {
+        "name": "refreshAndSort",
+        "type": "function",
+        "async": true,
+        "parameters": []
+      }
+    ]
+  }
+]
