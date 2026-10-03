@@ -31,19 +31,29 @@ jobs:
             pip install -r pin-addon/requirements.txt
           fi
 
+      - name: Show project structure
+        run: |
+          echo "=== Project structure ==="
+          find . -maxdepth 4 -type f | sort
+
       - name: Build Material Pin XPI
         run: |
           cd pin-addon
           python3 build.py
 
-      - name: List build output
+      - name: Find generated XPI
         run: |
-          echo "Build output:"
-          ls -lah pin-addon/dist/
+          echo "=== Searching for XPI files ==="
+          find . -type f \( -name "*.xpi" -o -name "*.zip" \) -print
+
+          echo "=== Directories ==="
+          find . -maxdepth 3 -type d -print
 
       - name: Upload XPI artifact
         uses: actions/upload-artifact@v4
         with:
           name: material-pin-thunderbird-addon
-          path: pin-addon/dist/*.xpi
+          path: |
+            pin-addon/**/*.xpi
+            **/*.xpi
           if-no-files-found: error
